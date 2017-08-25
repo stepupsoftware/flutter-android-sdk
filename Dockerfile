@@ -142,13 +142,9 @@ COPY licenses ${ANDROID_SDK_HOME}/licenses
 RUN /opt/tools/android-accept-licenses.sh android update sdk --no-ui --obsolete --force
 
 # Gradle
-ARG GRADLE_VERSION=4.1
-RUN cd /opt \
-  && wget http://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -q \
-  && unzip -qq -d /opt/gradle gradle-${GRADLE_VERSION}-bin.zip \
-  && export GRADLE_HOME=/opt/gradle/gradle-${GRADLE_VERSION} \
-  && export PATH=$PATH:/opt/gradle/gradle-${GRADLE_VERSION}/bin \
-  && rm gradle-${GRADLE_VERSION}-bin.zip \
+RUN add-apt-repository ppa:cwchien/gradle -y \
+  && apt-get update -qq \
+  && apt-get install -y gradle \
   && gradle -v
 
 USER root
