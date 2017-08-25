@@ -20,7 +20,7 @@ RUN apt-get install -y openjdk-8-jdk wget expect git curl software-properties-co
 # if we don't specify this, the libstdc++6 we get is the wrong version
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y \
   && apt-get update -qq \
-  && apt-get install -y libstdc++6 fonts-droid
+  && apt-get install -y libstdc++6 fonts-droid-fallback
 
 # ------------------------------------------------------
 # --- Download Android SDK tools into $ANDROID_SDK_HOME
