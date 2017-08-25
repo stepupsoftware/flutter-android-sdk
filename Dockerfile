@@ -152,7 +152,9 @@ USER root
 # Flutter
 RUN cd /opt \
   && git clone https://github.com/flutter/flutter.git -b alpha --depth 1 \
+
 ENV PATH=$PATH:/opt/flutter/bin
+
 RUN flutter doctor
 
 RUN apt-get clean
