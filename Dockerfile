@@ -28,6 +28,12 @@ RUN add-apt-repository ppa:cwchien/gradle -y \
   && apt-get install -y gradle \
   && gradle -v
 
+# Flutter
+RUN cd /opt \
+  && git clone https://github.com/flutter/flutter.git -b alpha --depth 1 \
+  && export PATH=$PATH:/opt/flutter/bin \
+  && flutter doctor
+
 # ------------------------------------------------------
 # --- Download Android SDK tools into $ANDROID_SDK_HOME
 
