@@ -22,6 +22,12 @@ RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y \
   && apt-get update -qq \
   && apt-get install -y libstdc++6 fonts-droid-fallback
 
+# Gradle
+RUN add-apt-repository ppa:cwchien/gradle -y \
+  && apt-get update -qq \
+  && apt-get install -y gradle \
+  && gradle -v
+
 # ------------------------------------------------------
 # --- Download Android SDK tools into $ANDROID_SDK_HOME
 
@@ -140,12 +146,6 @@ COPY licenses ${ANDROID_SDK_HOME}/licenses
 
 # Update SDK
 RUN /opt/tools/android-accept-licenses.sh android update sdk --no-ui --obsolete --force
-
-# Gradle
-RUN add-apt-repository ppa:cwchien/gradle -y \
-  && apt-get update -qq \
-  && apt-get install -y gradle \
-  && gradle -v
 
 USER root
 
