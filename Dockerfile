@@ -75,9 +75,10 @@ RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.3 | grep
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-x86-android-25 | grep 'package installed'
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-25 | grep 'package installed'
 
-RUN echo y | android update sdk --no-ui --all --filter sys-img-x86_64-android-24 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter sys-img-x86-android-24 | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-24 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter sys-img-x86_64-android-24 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter sys-img-x86-android-24 | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-25 | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-google_apis-25 | grep 'package installed'
 
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-x86-android-23 | grep 'package installed'
 #RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-23 | grep 'package installed'
@@ -85,7 +86,8 @@ RUN echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-andro
 # Extras
 RUN echo y | android update sdk --no-ui --all --filter extra-android-m2repository | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter extra-google-m2repository | grep 'package installed'
-RUN echo y | android update sdk --no-ui --all --filter extra-google-google_play_services | grep 'package installed'
+#RUN echo y | android update sdk --no-ui --all --filter extra-google-google_play_services | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter extra-google-android-support | grep 'package installed'
 
 # install those?
 
