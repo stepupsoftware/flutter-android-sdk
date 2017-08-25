@@ -28,12 +28,6 @@ RUN add-apt-repository ppa:cwchien/gradle -y \
   && apt-get install -y gradle \
   && gradle -v
 
-# Flutter
-RUN cd /opt \
-  && git clone https://github.com/flutter/flutter.git -b alpha --depth 1 \
-  && export PATH=$PATH:/opt/flutter/bin \
-  && flutter doctor
-
 # ------------------------------------------------------
 # --- Download Android SDK tools into $ANDROID_SDK_HOME
 
@@ -154,6 +148,12 @@ COPY licenses ${ANDROID_SDK_HOME}/licenses
 RUN /opt/tools/android-accept-licenses.sh android update sdk --no-ui --obsolete --force
 
 USER root
+
+# Flutter
+RUN cd /opt \
+  && git clone https://github.com/flutter/flutter.git -b alpha --depth 1 \
+ENV PATH=$PATH:/opt/flutter/bin
+RUN flutter doctor
 
 RUN apt-get clean
 
