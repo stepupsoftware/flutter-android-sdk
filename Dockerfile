@@ -7,7 +7,7 @@ RUN apt-get update -qq
 #RUN dpkg --add-architecture i386
 #RUN apt-get update -qq
 #RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-8-jdk libc6:i386 libstdc++6:i386 libgcc1:i386 libncurses5:i386 libz1:i386
-RUN apt-get install -y openjdk-8-jdk wget expect git curl unzip software-properties-common
+RUN apt-get install -y openjdk-8-jdk wget expect git curl unzip software-properties-common libglu1-mesa
 
 # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
 # if we don't specify this, the libstdc++6 we get is the wrong version
