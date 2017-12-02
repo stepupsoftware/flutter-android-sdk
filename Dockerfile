@@ -81,8 +81,7 @@ USER root
 
 # Flutter
 RUN cd /opt \
-  && git clone https://github.com/flutter/flutter.git -b alpha --depth 1 \
-  && rm -rf /opt/flutter/.git
+  && git clone https://github.com/flutter/flutter.git -b alpha --depth 1
 
 ENV PATH=$PATH:/opt/flutter/bin
 
