@@ -5,6 +5,7 @@ RUN apt-get update && \
     wget \
     git \
     lib32stdc++6 \
+    libglu1-mesa \
   && rm -rf /var/lib/apt/lists/*
 
 # RUN locale-gen en_US.UTF-8
