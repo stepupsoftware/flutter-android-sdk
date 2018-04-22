@@ -20,7 +20,7 @@ ENV TARGET_SDK "27"
 ENV ANDROID_HOME "/opt/sdk"
 
 # Download and extract Android Tools
-RUN wget -q --show-progress --progress=dot:mega http://dl.google.com/android/repository/sdk-tools-linux-${SDK_TOOLS}.zip -O /tmp/tools.zip && \
+RUN wget -q http://dl.google.com/android/repository/sdk-tools-linux-${SDK_TOOLS}.zip -O /tmp/tools.zip && \
   mkdir -p ${ANDROID_HOME} && \
   unzip /tmp/tools.zip -d ${ANDROID_HOME} && \
   rm -v /tmp/tools.zip
@@ -35,7 +35,7 @@ RUN mkdir -p /root/.android/ && touch /root/.android/repositories.cfg && \
 ENV FLUTTER_HOME "/opt/flutter"
 ENV FLUTTER_VERSION "0.2.8-beta"
 RUN mkdir -p ${FLUTTER_HOME} && \
-  wget --show-progress --progress=dot:mega http://storage.googleapis.com/flutter_infra/releases/beta/linux/flutter_linux_v${FLUTTER_VERSION}.tar.xz -O /tmp/flutter.tar.xz && \
+  wget -q http://storage.googleapis.com/flutter_infra/releases/beta/linux/flutter_linux_v${FLUTTER_VERSION}.tar.xz -O /tmp/flutter.tar.xz && \
   tar xf /tmp/flutter.tar.xz -C /tmp && \
   mv /tmp/flutter/ -T ${FLUTTER_HOME} && \
   rm -rf /tmp/flutter.tar.xz
