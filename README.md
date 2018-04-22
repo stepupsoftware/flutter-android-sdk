@@ -20,12 +20,15 @@ pipelines:
         caches:
           - gradle
           - gradlewrapper
+          - flutter
         script:
           - echo "Building APK..."
+          - flutter upgrade
           - flutter doctor
           - flutter -v build apk
 
 definitions:
   caches:
     gradlewrapper: ~/.gradle/wrapper
+    flutter: /opt/flutter
 ```
