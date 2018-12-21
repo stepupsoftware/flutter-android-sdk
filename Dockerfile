@@ -14,9 +14,9 @@ ENV LANG en_US.UTF-8
 # Installing android base on what found at
 # https://hub.docker.com/r/alvrme/alpine-android/~/dockerfile/
 
-ENV SDK_TOOLS "3859397"
-ENV BUILD_TOOLS "27.0.3"
-ENV TARGET_SDK "27"
+ENV SDK_TOOLS "4333796"
+ENV BUILD_TOOLS "28.0.3"
+ENV TARGET_SDK "28"
 ENV ANDROID_HOME "/opt/sdk"
 
 # Download and extract Android Tools
@@ -33,9 +33,9 @@ RUN mkdir -p /root/.android/ && touch /root/.android/repositories.cfg && \
 
 # Install flutter
 ENV FLUTTER_HOME "/opt/flutter"
-ENV FLUTTER_VERSION "0.2.8-beta"
+ENV FLUTTER_VERSION "1.0.0"
 RUN mkdir -p ${FLUTTER_HOME} && \
-  curl -L http://storage.googleapis.com/flutter_infra/releases/beta/linux/flutter_linux_v${FLUTTER_VERSION}.tar.xz -o /tmp/flutter.tar.xz --progress-bar && \
+  curl -L https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v${FLUTTER_VERSION}-stable.tar.xz -o /tmp/flutter.tar.xz --progress-bar && \
   tar xf /tmp/flutter.tar.xz -C /tmp && \
   mv /tmp/flutter/ -T ${FLUTTER_HOME} && \
   rm -rf /tmp/flutter.tar.xz
