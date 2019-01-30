@@ -39,5 +39,6 @@ RUN mkdir -p ${FLUTTER_HOME} && \
   tar xf /tmp/flutter.tar.xz -C /tmp && \
   mv /tmp/flutter/ -T ${FLUTTER_HOME} && \
   rm -rf /tmp/flutter.tar.xz
-
 ENV PATH=$PATH:$FLUTTER_HOME/bin
+RUN flutter upgrade && \
+  yes | flutter doctor --android-licenses
