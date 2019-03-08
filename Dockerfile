@@ -41,4 +41,4 @@ RUN mkdir -p ${FLUTTER_HOME} && \
   rm -rf /tmp/flutter.tar.xz
 ENV PATH=$PATH:$FLUTTER_HOME/bin
 RUN flutter upgrade && \
-  yes | flutter doctor --android-licenses
+  yes | flutter doctor --android-licenses && flutter channel stable
